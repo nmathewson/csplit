@@ -1,0 +1,15 @@
+Run this in a tor directory as follows:
+
+rm -rf OUT_SPLIT && python csplit.py src/{or,common}/*.[ch]
+
+It will fill OUT_SPLIT with the C files, split into functions.
+
+Then, run it again in another Tor directory.
+
+Then do:
+  diff -urN $tordir1/OUT_SPLIT $tordir2/OUT_SPLIT
+
+and it might tell you the differences between moved functions, if any.
+
+
+Maybe it doesn't work; good luck.
